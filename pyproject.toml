@@ -10,11 +10,29 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
 dependencies = [
-    "RPi.GPIO>=0.7",
     "pydantic>=2.5",
     "PyYAML>=6.0",
     "fastapi>=0.110",
     "uvicorn>=0.27",
+]
+
+[project.optional-dependencies]
+pi = [
+    "RPi.GPIO>=0.7",
+    "smbus2>=0.4",
+    "bme280>=0.3",
+]
+mqtt = [
+    "paho-mqtt>=2.0",
+]
+dev = [
+    "dometic-pi-control[pi]",
+    "dometic-pi-control[mqtt]",
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "black>=23.0",
+    "ruff>=0.1",
+    "hypothesis>=6.92",
 ]
 
 [project.scripts]
@@ -22,3 +40,18 @@ dometic = "dometic.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
