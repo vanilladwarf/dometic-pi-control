@@ -1,5 +1,15 @@
-RPi.GPIO>=0.7
+# Core dependencies (always required)
 pydantic>=2.5
 PyYAML>=6.0
 fastapi>=0.110
 uvicorn>=0.27
+
+# Raspberry Pi extras (for running on real hardware)
+# Install with: pip install dometic-pi-control[pi]
+# RPi.GPIO>=0.7
+# smbus2>=0.4
+# bme280>=0.3
+
+# MQTT extras (for Home Assistant integration)
+# Install with: pip install dometic-pi-control[mqtt]
+# paho-mqtt>=2.0
