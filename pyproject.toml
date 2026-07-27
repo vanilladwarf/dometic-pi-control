@@ -17,17 +17,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-pi = [
-    "RPi.GPIO>=0.7",
-    "smbus2>=0.4",
-    "bme280>=0.3",
-]
-mqtt = [
-    "paho-mqtt>=2.0",
-]
+pi = ["RPi.GPIO>=0.7", "smbus2>=0.4", "bme280>=0.3"]
+mqtt = ["paho-mqtt>=2.0"]
 dev = [
-    "dometic-pi-control[pi]",
-    "dometic-pi-control[mqtt]",
     "pytest>=7.4",
     "pytest-cov>=4.1",
     "black>=23.0",
